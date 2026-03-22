@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAKE</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='game/style.css') }}">
+  <script src="https://unpkg.com/vue@3.3.4/dist/vue.global.prod.js"></script>
+</head>
+<body>
+
+  <div id="app" v-cloak>
+    
+    <input type="text" 
+           v-model="username"
+           id="take-username"
+           maxlength="10"
+           placeholder="Enter your username"
+           autocorrect="off"
+           spellcheck="false">
+
+    <p class="turn" :style="{ color: turn }">
+      [[ me == turn ? 'YOUR' : 'OPPONENT\'S' ]] TURN
+    </p>
+
+    <div class="grid">
+      <div class="row" v-for="y in size" :key="'row'+y">
+        <div class="cell" 
+             owner="vacant" 
+             :class="{ 'darkened' : ((x + y) % 2) == 0 }" 
+             v-for="x in size" 
+             :key="'cell'+x"
+             @click="place($event.srcElement)" 
+             :x="x" 
+             :y="y">
+          <div class="owner"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scores">
+      
+      <div class="score-row" style="color: blue;">
+        <div class="score-grid" v-for="(score, index) in blueScore" :key="'bs'+index">
+          <div v-if="score != 0">[[ score ]]</div>
+        </div>
+        <div class="score-grid final-score">
+          [[ blueFinal ]]
+        </div>
+      </div>
+
+      <div class="score-row" style="color: red;">
+        <div class="score-grid" v-for="(score, index) in redScore" :key="'rs'+index">
+          <div v-if="score != 0">[[ score ]]</div>
+        </div>
+        <div class="score-grid final-score">
+          [[ redFinal ]]
+        </div>
+      </div>
+
+    </div>
+
+    <div class="game-id-container">
+      <span class="game-id-label">Game ID:</span>
+      <p class="game-id-value">[[ game_id ]]</p>
+    </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='game/app.js') }}"></script>
+  
+</body>
+</html>

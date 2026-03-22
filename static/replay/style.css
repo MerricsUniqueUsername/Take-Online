@@ -1,0 +1,109 @@
+:root {
+  --cell-size: 8vmin;
+  --bg-color: #ffffff;
+  --border-color: #000000;
+}
+
+[v-cloak] { display: none; }
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: var(--bg-color);
+  color: var(--border-color);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 4vh;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.matchup-header {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.vs { margin: 0 15px; color: #888; font-size: 1rem; }
+
+p { font-family: inherit; margin: 0; text-transform: uppercase; }
+.turn { font-size: 1.8rem; letter-spacing: 2px; margin: 10px 0 30px 0; }
+
+.grid { border: 1px solid var(--border-color); background-color: var(--bg-color); display: inline-block; }
+.row { display: flex; }
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 0.5px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.darkened { background-color: #f0f0f0; }
+
+/* Pieces */
+.owner { width: 65%; height: 65%; border-radius: 50%; }
+.blue-piece { background-color: blue; }
+.red-piece { background-color: red; }
+
+.scores { margin-top: 30px; display: flex; flex-direction: column; gap: 15px; }
+.score-row { display: flex; border: 1px solid var(--border-color); }
+.score-grid {
+  width: var(--cell-size);
+  height: calc(var(--cell-size) * 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-right: 1px solid var(--border-color);
+}
+.score-grid:last-child { border-right: none; }
+.final-score { font-size: 2.5rem; font-weight: bold; }
+
+.controls-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  align-items: center;
+}
+
+button {
+  font-family: inherit;
+  background: white;
+  border: 1px solid black;
+  padding: 8px 20px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+}
+
+button:hover:not(:disabled) { background: #f0f0f0; }
+button:disabled { color: #ccc; border-color: #ccc; cursor: not-allowed; }
+.play-btn { font-weight: bold; background: black; color: white; width: 120px; }
+.play-btn:hover { background: white; color: black; }
+
+.timeline {
+  -webkit-appearance: none;
+  width: 300px;
+  height: 2px;
+  background: black;
+  outline: none;
+  margin-top: 30px;
+}
+.timeline::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+}

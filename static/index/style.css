@@ -1,0 +1,189 @@
+[v-cloak] { display: none; }
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: white;
+  color: black;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 80px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.logo {
+  font-size: 5.5rem;
+  letter-spacing: 16px;
+  margin: 0 0 50px 0;
+  font-weight: normal;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  padding: 12px 35px;
+  cursor: pointer;
+  border: 1px solid black;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-create {
+  background: black;
+  color: white;
+}
+
+.btn-create:hover {
+  background: white;
+  color: black;
+}
+
+.join-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.join-container input {
+  font-family: inherit;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 8px 5px;
+  width: 280px;
+  text-align: center;
+  outline: none;
+  background: transparent;
+  transition: border-bottom-width 0.1s;
+}
+
+.join-container input:focus {
+  border-bottom: 2px solid black;
+  padding-bottom: 7px;
+}
+
+.btn-join {
+  background: white;
+  color: black;
+  padding: 8px 25px;
+  font-size: 0.9rem;
+}
+
+.btn-join:hover:not(:disabled) {
+  background: black;
+  color: white;
+}
+
+.btn-join:disabled {
+  color: #aaa;
+  border-color: #aaa;
+  cursor: not-allowed;
+}
+
+.history-container {
+  width: 100%;
+  max-width: 550px;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-align: center;
+}
+
+.game-entry {
+  border: 1px solid black;
+  padding: 25px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #fafafa;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.game-entry:hover {
+  background-color: #ebebeb;
+  transform: translateY(-2px);
+}
+
+.matchup {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.p-name.red { color: red; }
+.p-name.blue { color: blue; }
+.vs { margin: 0 20px; color: #666; font-size: 1.2rem; }
+
+.results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dotted #ccc;
+  letter-spacing: 1px;
+}
+
+.winner-label .red { color: red; }
+.winner-label .blue { color: blue; }
+.winner-label .draw { color: black; }
+
+.final-scores {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.game-uuid {
+  font-size: 0.7rem;
+  color: #999;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+
+.scroll-status {
+  text-align: center;
+  padding: 30px;
+  min-height: 50px;
+  width: 100%;
+  clear: both;
+}
+
+.loading-text {
+  font-style: italic;
+  color: #666;
+  letter-spacing: 2px;
+  animation: fade 1.5s infinite;
+}
+
+.end-text {
+  color: #aaa;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+}
+
+@keyframes fade {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAKE | Replay</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='replay/style.css') }}">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+  <div id="app" v-cloak>
+    
+    <div class="matchup-header">
+      <span class="player-name" style="color: red;">[[ redName ]]</span>
+      <span class="vs">VS</span>
+      <span class="player-name" style="color: blue;">[[ blueName ]]</span>
+    </div>
+
+    <p class="turn">
+      MOVE [[ currentIndex ]] / [[ maxIndex ]]
+    </p>
+
+    <div class="grid">
+      <div class="row" v-for="(row, y) in currentBoard" :key="'row'+y">
+        <div class="cell" 
+             :class="{ 'darkened' : ((x + y) % 2) == 0 }" 
+             v-for="(cell, x) in row" 
+             :key="'cell'+x">
+          <div class="owner" :class="{'blue-piece': cell === 1, 'red-piece': cell === 2}"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scores">
+      <div class="score-row" style="color: blue;">
+        <div class="score-grid" v-for="(score, index) in currentBlueScore" :key="'bs'+index">
+          <div v-if="score != 0">[[ score ]]</div>
+        </div>
+        <div class="score-grid final-score">
+          [[ blueTotal ]]
+        </div>
+      </div>
+
+      <div class="score-row" style="color: red;">
+        <div class="score-grid" v-for="(score, index) in currentRedScore" :key="'rs'+index">
+          <div v-if="score != 0">[[ score ]]</div>
+        </div>
+        <div class="score-grid final-score">
+          [[ redTotal ]]
+        </div>
+      </div>
+    </div>
+
+    <div class="controls-container">
+      <button @click="prevMove" :disabled="currentIndex === 0">&larr; PREV</button>
+      
+      <button @click="togglePlay" class="play-btn">
+        [[ isPlaying ? 'PAUSE' : 'PLAY' ]]
+      </button>
+      
+      <button @click="nextMove" :disabled="currentIndex === maxIndex">NEXT &rarr;</button>
+    </div>
+    
+    <input type="range" class="timeline" min="0" :max="maxIndex" v-model="currentIndex" @input="pause">
+
+  </div>
+
+  <script src="{{ url_for('static', filename='replay/app.js') }}"></script>
+</body>
+</html>

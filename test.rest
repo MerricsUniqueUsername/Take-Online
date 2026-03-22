@@ -1,0 +1,23 @@
+### Create game
+GET http://127.0.0.1:5000/create
+
+### Get game data
+GET http://127.0.0.1:5000/gamedata/83bd985d-b86a-4237-8b39-6325b03ff97e
+
+### Make move red
+POST http://127.0.0.1:5000/move/83bd985d-b86a-4237-8b39-6325b03ff97e
+Content-Type: application/json
+
+{
+    "password": "nXSSiMBw",
+    "move": "p43"
+}
+
+### Make move blue
+POST http://127.0.0.1:5000/move/83bd985d-b86a-4237-8b39-6325b03ff97e
+Content-Type: application/json
+
+{
+    "password": "Zsbteu7l",
+    "move": "h44"
+}

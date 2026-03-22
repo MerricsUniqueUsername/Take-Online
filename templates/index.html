@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAKE</title>
+  <link rel="stylesheet" href="/static/index/style.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app" v-cloak>
+    
+    <div class="hero">
+      <h1 class="logo">TAKE</h1>
+      
+      <div class="actions">
+        <button @click="createGame" class="btn-create">CREATE NEW GAME</button>
+        
+        <div class="join-container">
+          <input type="text" v-model="joinId" placeholder="ENTER GAME ID" spellcheck="false" autocomplete="off">
+          <button @click="joinGame" class="btn-join" :disabled="!joinId">JOIN</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="history-container">
+      <h2 class="section-title">RECENT GAMES</h2>
+      
+      <div class="game-list">
+        <div v-for="game in history" :key="game.id" class="game-entry" @click="watchReplay(game.id)">
+          <div class="matchup">
+            <span class="p-name red">[[ game.red_name || 'RED' ]]</span>
+            <span class="vs">VS</span>
+            <span class="p-name blue">[[ game.blue_name || 'BLUE' ]]</span>
+          </div>
+          
+          <div class="results">
+            <div class="winner-label">
+              WINNER: <span :class="game.winner">[[ game.winner.toUpperCase() ]]</span>
+            </div>
+            <div class="final-scores">
+              [[ game.scores.red ]] &mdash; [[ game.scores.blue ]]
+            </div>
+          </div>
+          
+          <div class="game-uuid">ID: [[ game.id ]]</div>
+        </div>
+
+        <div id="scroll-anchor" class="scroll-status">
+          <p v-show="loading" class="loading-text">LOADING...</p>
+          <p v-show="allLoaded" class="end-text">END OF RECORD</p>
+          <div v-show="!loading && !allLoaded" style="height: 10px;"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/static/index/index.js"></script>
+</body>
+</html>
