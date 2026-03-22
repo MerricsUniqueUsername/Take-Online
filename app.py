@@ -9,11 +9,15 @@ from nanoid import generate
 from take import play
 from datetime import datetime, timezone
 import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 
+load_dotenv()
+uri = os.getenv("DATABASE_URL")
+
 # Database
-app.config['SQLALCHEMY_DATABASE_URI'] = ''
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
