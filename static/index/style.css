@@ -22,6 +22,7 @@ body {
   font-size: 5.5rem;
   letter-spacing: 16px;
   margin: 0 0 50px 0;
+  margin-top: 40px;
   font-weight: normal;
 }
 
@@ -101,8 +102,8 @@ button {
 
 .section-title {
   font-size: 1.1rem;
-  border-bottom: 2px solid black;
   padding-bottom: 10px;
+  margin-top: 60px;
   margin-bottom: 30px;
   font-weight: bold;
   letter-spacing: 4px;
