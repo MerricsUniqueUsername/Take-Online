@@ -186,7 +186,7 @@ def make_move(game_id):
 def get_completed_games(start, count):
     completed_games = Game.query.filter(
         Game.winner != "", 
-    ).order_by(Game.created_at.asc()).offset(start).limit(count).all()
+    ).order_by(Game.created_at.desc()).offset(start).limit(count).all()
 
     results = []
     for game in completed_games:
