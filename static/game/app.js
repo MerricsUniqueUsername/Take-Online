@@ -9,14 +9,14 @@ const App = Vue.createApp({
     return {
 
     // Grid variables
-      size: 4,
+      size: 8,
       highlightedCell: null,
       turn: 'blue',
       grid: [],
 
       // Scores
-      redScore: ['', ''],
-      blueScore: ['', ''],
+      redScore: ['', '', '', '', '', '', '', '', '', ''],
+      blueScore: ['', '', '', '', '', '', '', '', '', ''],
       redFull: false,
       blueFull: false,
       redFinal: 0,

@@ -44,8 +44,8 @@ def replay(game_id):
 
 @app.route('/create', methods=['GET'])
 def create_game():
-    scoreboard_size = 2
-    grid_size = 4
+    scoreboard_size = 10
+    grid_size = 8
 
     new_game = Game(data={
         'red_score': [0] * scoreboard_size,
