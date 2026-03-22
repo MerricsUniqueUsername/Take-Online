@@ -64,7 +64,7 @@ const App = Vue.createApp({
           blueFull = false;
         }
       }
-      this.blueFull = redFull;
+      this.blueFull = blueFull;
 
       // If red is done and grid is full, the it is blue's turn
       if(gridFull && redFull) {

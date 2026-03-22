@@ -1,5 +1,5 @@
 :root {
-  --cell-size: 8vmin;
+  --cell-size: 5vmin;
   --bg-color: #ffffff;
   --border-color: #000000;
 }
@@ -61,11 +61,11 @@ p { font-family: inherit; margin: 0; text-transform: uppercase; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-right: 1px solid var(--border-color);
 }
 .score-grid:last-child { border-right: none; }
-.final-score { font-size: 2.5rem; font-weight: bold; }
+.final-score { font-size: 2rem; font-weight: bold; }
 
 .controls-container {
   display: flex;
