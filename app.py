@@ -67,6 +67,22 @@ def create_game():
         'id': new_game.id
     })
 
+@app.route('/ingamedata/<uuid:game_id>', methods=['GET'])
+def in_game_data(game_id):
+    game = Game.query.get_or_404(game_id)
+    
+    # Dont send passwords or history
+    safe_data = game.data.copy()
+    safe_data.pop('red_password', None)
+    safe_data.pop('blue_password', None)
+    safe_data.pop('move_history', None)
+    
+    return jsonify({
+        'id': str(game.id),
+        'data': safe_data,
+        'winner': game.winner
+    })
+
 @app.route('/gamedata/<uuid:game_id>', methods=['GET'])
 def get_game_data(game_id):
     game = Game.query.get_or_404(game_id)

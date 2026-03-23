@@ -290,7 +290,7 @@ const App = Vue.createApp({
       if (this.isSendingMove) return;
 
       try {
-        const response = await fetch(`/gamedata/${this.game_id}`);
+        const response = await fetch(`/ingamedata/${this.game_id}`);
         const result = await response.json();
         const serverData = result.data;
 
