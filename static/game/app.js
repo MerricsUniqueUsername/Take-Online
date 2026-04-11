@@ -111,6 +111,7 @@ const App = Vue.createApp({
     },
 
     takeHorizontally() {
+      if(this.turn != this.me) return;
       var score = -1;
       if(this.highlightedCell != null) {
         score = 0;
@@ -149,6 +150,7 @@ const App = Vue.createApp({
     },
 
     takeVertically() {
+      if(this.turn != this.me) return;
       var score = -1;
       if(this.highlightedCell != null) {
         score = 0;
@@ -238,6 +240,7 @@ const App = Vue.createApp({
     },
 
     take(event) {
+      console.log(event);
 
       if(this.turn != this.me) return;
 
